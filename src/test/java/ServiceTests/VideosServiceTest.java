@@ -1,27 +1,17 @@
 package ServiceTests;
 
-import Client.Client;
-import microservices.VideosService;
+import features.VideoDetails;
 import models.VideoResponse.Video;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import retrofit2.Response;
-import utils.PropertyFileReader;
 
 import java.io.IOException;
 
 public class VideosServiceTest {
     @Test
-    public void testVideoDetails() throws IOException {
-        PropertyFileReader propertyFile = new PropertyFileReader();
-
-        VideosService videosService = Client.getService(VideosService.class);
-
-        Response<Video> video = videosService.getVideoUsingId(
-                "id,contentDetails,snippet,statistics",
-                propertyFile.getApikey(),
-                "TMuno5RZNeE").execute();
-
+    public void testGetVideo() throws IOException {
+        Response<Video> video = VideoDetails.getVideosServiceResponse("TMuno5RZNeE");
         Assert.assertEquals(video.code(), 200);
         Assert.assertEquals(video.message(), "OK");
     }

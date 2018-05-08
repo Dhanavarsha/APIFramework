@@ -1,30 +1,21 @@
 package ServiceTests;
 
-import Client.Client;
-import microservices.SearchService;
+import features.SearchInYoutube;
 import models.SearchResponse.SearchResult;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import retrofit2.Response;
-import utils.PropertyFileReader;
 
 import java.io.IOException;
 
 public class SearchServiceTest {
+
     @Test
-    public void testSearchForSuccess() throws IOException {
-        PropertyFileReader propertyFileReader = new PropertyFileReader();
-
-        SearchService searchService = Client.getService(SearchService.class);
-
-        Response<SearchResult> result = searchService.searchWithQuery(
-                "snippet",
-                propertyFileReader.getApikey(),
-                "uncle bob",
-                "video",
-                10).execute();
-
+    public void testSearchUsingQuery() throws IOException {
+        Response<SearchResult> result = SearchInYoutube.getSearchServiceResponse("uncle bob");
         Assert.assertEquals(result.code(), 200);
         Assert.assertEquals(result.message(), "OK");
+        Assert.assertEquals(SearchInYoutube.getSearchResult().getItems().get(0).getSnippet().getTitle().trim(),
+                "Bob Martin   SOLID Principles of Object Oriented and Agile Design");
     }
 }
