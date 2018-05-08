@@ -1,0 +1,42 @@
+group 'com.testvagrant'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Use TestNG framework, also requires calling test.useTestNG() below
+    testCompile 'org.testng:testng:6.10'
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    compile 'com.squareup.retrofit2:retrofit:2.4.0'
+
+    // https://mvnrepository.com/artifact/com.google.code.gson/gson
+    compile group: 'com.google.code.gson', name: 'gson', version: '2.8.4'
+
+    compile 'com.squareup.retrofit2:converter-gson:2.4.0'
+}
+
+task sample(type: Test) {
+
+    useTestNG {
+        suites "testng.xml"
+        testLogging {
+            events "passed", "skipped", "failed", "standardOut", "standardError"
+        }
+        testLogging.showStandardStreams = true
+        testLogging {
+            afterSuite { desc, result ->
+                if (!desc.parent) { // will match the outermost suite
+                    println "Results: ${result.resultType} (${result.testCount} tests, ${result.successfulTestCount} successes, ${result.failedTestCount} failures, ${result.skippedTestCount} skipped)"
+                }
+            }
+        }
+    }
+}
