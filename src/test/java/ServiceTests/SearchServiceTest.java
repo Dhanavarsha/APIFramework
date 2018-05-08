@@ -22,7 +22,7 @@ public class SearchServiceTest {
 
 
         SearchService searchService = retrofit.create(SearchService.class);
-        Call<SearchResult> call = searchService.searchResultWithQuery(
+        Call<SearchResult> call = searchService.searchWithQuery(
                 "snippet",
                 "AIzaSyAT4Uso-Cwn0q78KXDAju67nR4tg4pJKnA",
                 "uncle bob",
