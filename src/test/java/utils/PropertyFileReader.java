@@ -6,7 +6,6 @@ import java.util.Properties;
 
 public class PropertyFileReader {
     private Properties properties;
-    private String baseUrl = "";
     private String apikey = "";
 
     public PropertyFileReader() {
@@ -21,21 +20,12 @@ public class PropertyFileReader {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        setBaseUrl();
         setApikey();
-
     }
 
-    public String getBaseUrl() {
-        return baseUrl;
-    }
 
     public String getApikey() {
         return apikey;
-    }
-
-    private void setBaseUrl() {
-        this.baseUrl = properties.getProperty("baseUrl");
     }
 
     private void setApikey() {
