@@ -1,5 +1,8 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="APIFramework" parallel="none">
+    <listeners>
+        <listener class-name="reporting.ExtentReporterNG"/>
+    </listeners>
     <test name="SampleTest">
         <packages>
             <package name="ServiceTests"></package>
