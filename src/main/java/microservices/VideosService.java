@@ -1,5 +1,6 @@
 package microservices;
 
+import models.RatingResponse.Rating;
 import models.VideoResponse.Video;
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -17,4 +18,8 @@ public interface VideosService {
     @Headers("Auth:ACCESS_TOKEN")
     Call<Void> rateAVideo(@Query("id") String videoId,
                           @Query("rating") String rating);
+
+    @GET("videos/getRating")
+    @Headers("Auth:ACCESS_TOKEN")
+    Call<Rating> getVideoRating(@Query("id") String videoId);
 }
