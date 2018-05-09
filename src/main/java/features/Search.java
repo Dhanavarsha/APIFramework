@@ -8,13 +8,13 @@ import utils.PropertyFileReader;
 
 import java.io.IOException;
 
-public class SearchInYoutube {
+public class Search {
     private static PropertyFileReader propertyFileReader = new PropertyFileReader();
     private static Response<SearchResult> response;
     private static SearchResult searchResult;
     private String query;
 
-    public SearchInYoutube(String query) {
+    public Search(String query) {
         this.query = query;
     }
 

@@ -1,6 +1,6 @@
 package ServiceTests;
 
-import features.SearchInYoutube;
+import features.Search;
 import models.SearchResponse.SearchResult;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -12,10 +12,10 @@ public class SearchServiceTest {
 
     @Test
     public void testSearchUsingQuery() throws IOException {
-        Response<SearchResult> result = SearchInYoutube.getSearchServiceResponse("uncle bob");
+        Response<SearchResult> result = Search.getSearchServiceResponse("uncle bob");
         Assert.assertEquals(result.code(), 200);
         Assert.assertEquals(result.message(), "OK");
-        Assert.assertEquals(SearchInYoutube.getSearchResult().getItems().get(0).getSnippet().getTitle().trim(),
+        Assert.assertEquals(Search.getSearchResult().getItems().get(0).getSnippet().getTitle().trim(),
                 "Bob Martin   SOLID Principles of Object Oriented and Agile Design");
     }
 }
