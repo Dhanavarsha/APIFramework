@@ -18,7 +18,7 @@ public class SearchServiceTest {
 
         Assert.assertEquals(result.code(), 200);
         Assert.assertEquals(result.message(), "OK");
-        Assert.assertEquals(search.getSearchResult().getItems().get(0).getSnippet().getTitle().trim(),
+        Assert.assertEquals(result.body().getItems().get(0).getSnippet().getTitle().trim(),
                 "Bob Martin   SOLID Principles of Object Oriented and Agile Design");
     }
 }
