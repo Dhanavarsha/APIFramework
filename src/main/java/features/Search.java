@@ -8,12 +8,10 @@ import utils.PropertyFileReader;
 
 public class Search {
     private final String query;
-    private PropertyFileReader propertyFileReader;
     private Response<SearchResult> response;
 
     public Search(String query) {
         this.query = query;
-        this.propertyFileReader = new PropertyFileReader();
     }
 
     public SearchResult getSearchResult() {
@@ -25,7 +23,6 @@ public class Search {
             this.response = Client.getService(SearchService.class)
                     .searchWithQuery(
                             "snippet",
-                            propertyFileReader.getApikey(),
                             query,
                             "video",
                             10)

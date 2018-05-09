@@ -7,6 +7,7 @@ import java.util.Properties;
 public class PropertyFileReader {
     private Properties properties;
     private String apikey = "";
+    private String accessToken = "";
 
     public PropertyFileReader() {
         this.properties = new Properties();
@@ -21,8 +22,8 @@ public class PropertyFileReader {
             e.printStackTrace();
         }
         setApikey();
+        setAccessToken();
     }
-
 
     public String getApikey() {
         return apikey;
@@ -30,5 +31,13 @@ public class PropertyFileReader {
 
     private void setApikey() {
         this.apikey = properties.getProperty("apiKey");
+    }
+
+    public String getAccessToken() {
+        return accessToken;
+    }
+
+    private void setAccessToken() {
+        this.accessToken = properties.getProperty("accessToken");
     }
 }
