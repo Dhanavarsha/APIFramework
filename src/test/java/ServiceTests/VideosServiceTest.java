@@ -11,7 +11,10 @@ import java.io.IOException;
 public class VideosServiceTest {
     @Test
     public void testGetVideo() throws IOException {
-        Response<Video> video = VideoDetails.getVideosServiceResponse("TMuno5RZNeE");
+        VideoDetails videoDetails = new VideoDetails("TMuno5RZNeE");
+
+        Response<Video> video = videoDetails.getVideosServiceResponse();
+
         Assert.assertEquals(video.code(), 200);
         Assert.assertEquals(video.message(), "OK");
     }

@@ -12,10 +12,13 @@ public class SearchServiceTest {
 
     @Test
     public void testSearchUsingQuery() throws IOException {
-        Response<SearchResult> result = Search.getSearchServiceResponse("uncle bob");
+        Search search = new Search("uncle bob");
+
+        Response<SearchResult> result = search.getSearchServiceResponse();
+
         Assert.assertEquals(result.code(), 200);
         Assert.assertEquals(result.message(), "OK");
-        Assert.assertEquals(Search.getSearchResult().getItems().get(0).getSnippet().getTitle().trim(),
+        Assert.assertEquals(search.getSearchResult().getItems().get(0).getSnippet().getTitle().trim(),
                 "Bob Martin   SOLID Principles of Object Oriented and Agile Design");
     }
 }

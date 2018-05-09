@@ -6,32 +6,33 @@ import models.SearchResponse.SearchResult;
 import retrofit2.Response;
 import utils.PropertyFileReader;
 
-import java.io.IOException;
-
 public class Search {
-    private static PropertyFileReader propertyFileReader = new PropertyFileReader();
-    private static Response<SearchResult> response;
-    private static SearchResult searchResult;
-    private String query;
+    private final String query;
+    private PropertyFileReader propertyFileReader;
+    private Response<SearchResult> response;
 
     public Search(String query) {
         this.query = query;
+        this.propertyFileReader = new PropertyFileReader();
     }
 
-    public static SearchResult getSearchResult() {
-        searchResult = response.body();
-        return searchResult;
+    public SearchResult getSearchResult() {
+        return response.body();
     }
 
-    public static Response<SearchResult> getSearchServiceResponse(String query) throws IOException {
-        response = Client.getService(SearchService.class)
-                .searchWithQuery(
-                        "snippet",
-                        propertyFileReader.getApikey(),
-                        query,
-                        "video",
-                        10)
-                .execute();
+    public Response<SearchResult> getSearchServiceResponse() {
+        try {
+            this.response = Client.getService(SearchService.class)
+                    .searchWithQuery(
+                            "snippet",
+                            propertyFileReader.getApikey(),
+                            query,
+                            "video",
+                            10)
+                    .execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return response;
     }
 }

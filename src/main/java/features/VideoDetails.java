@@ -10,23 +10,22 @@ import utils.PropertyFileReader;
 import java.io.IOException;
 
 public class VideoDetails {
-    private static PropertyFileReader propertyFileReader = new PropertyFileReader();
-    private static Response<Video> response;
-    private static Video video;
+    private PropertyFileReader propertyFileReader;
+    private Response<Video> response;
     private String id;
 
     public VideoDetails(String id) {
         this.id = id;
+        this.propertyFileReader = new PropertyFileReader();
     }
 
-    public static Video getVideo() throws IOException {
-        video = response.body();
-        return video;
+    public Video getVideo() throws IOException {
+        return response.body();
     }
 
 
-    public static Response<Video> getVideosServiceResponse(String id) throws IOException {
-        response = Client.getService(VideosService.class)
+    public Response<Video> getVideosServiceResponse() throws IOException {
+        this.response = Client.getService(VideosService.class)
                 .getVideoUsingId("id,contentDetails,snippet,statistics",
                         propertyFileReader.getApikey(),
                         id)
