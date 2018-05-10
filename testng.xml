@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="APIFramework" parallel="none">
+<suite name="APIFramework" parallel="methods" thread-count="4">
     <listeners>
         <listener class-name="reporting.ExtentReporterNG"/>
     </listeners>
