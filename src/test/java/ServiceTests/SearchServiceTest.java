@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class SearchServiceTest {
 
-    @Test
+    @Test(groups = "smoke")
     public void testSearchUsingQuery() throws IOException {
         Search search = new Search("uncle bob");
 

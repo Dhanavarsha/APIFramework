@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class VideosServiceTest {
 
-    @Test
+    @Test(groups = "smoke")
     public void testGetVideo() throws IOException {
         VideoDetails videoDetails = new VideoDetails("TMuno5RZNeE");
 
@@ -21,7 +21,7 @@ public class VideosServiceTest {
         Assert.assertEquals(video.message(), "OK");
     }
 
-    @Test
+    @Test(groups = "smoke")
     public void testRateAVideo() throws IOException {
         VideoDetails videoDetails = new VideoDetails("FepIkIILumA");
 
