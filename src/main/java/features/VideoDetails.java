@@ -35,4 +35,21 @@ public class VideoDetails {
                 .execute();
     }
 
+    public Response<Void> removeRating() throws IOException {
+        return Client.getService(VideosService.class)
+                .rateAVideo(id, "none")
+                .execute();
+    }
+
+    public Response<Void> likeVideo() throws IOException {
+        return Client.getService(VideosService.class)
+                .rateAVideo(id, "like")
+                .execute();
+    }
+
+    public Response<Void> dislikeVideo() throws IOException {
+        return Client.getService(VideosService.class)
+                .rateAVideo(id, "dislike")
+                .execute();
+    }
 }

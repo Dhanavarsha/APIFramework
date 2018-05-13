@@ -6,7 +6,7 @@
     <test name="SampleTest">
         <groups>
             <run>
-                <include name="smoke"></include>
+                <include name="videoRating"></include>
             </run>
         </groups>
         <packages>
