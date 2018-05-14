@@ -7,10 +7,10 @@ import java.util.Properties;
 public class PropertyFile {
     private static PropertyFile propertyFile = new PropertyFile();
     private Properties properties = new Properties();
-    private String apikey = "";
-    private String accessToken = "";
-    private String clientId = "";
-    private String clientSecret = "";
+    private String apikey = null;
+    private String accessToken = null;
+    private String clientId = null;
+    private String clientSecret = null;
 
     private PropertyFile() {
         readPropertyFile();
@@ -27,41 +27,26 @@ public class PropertyFile {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        setApikey();
-        setAccessToken();
-        setClientId();
-        setClientSecret();
+        this.apikey = properties.getProperty("apiKey");
+        this.accessToken = properties.getProperty("accessToken");
+        this.clientId = properties.getProperty("clientId");
+        this.clientSecret = properties.getProperty("clientSecret");
     }
 
     public String getApikey() {
         return apikey;
     }
 
-    private void setApikey() {
-        this.apikey = properties.getProperty("apiKey");
-    }
-
     public String getAccessToken() {
         return accessToken;
-    }
-
-    private void setAccessToken() {
-        this.accessToken = properties.getProperty("accessToken");
     }
 
     public String getClientId() {
         return clientId;
     }
 
-    public void setClientId() {
-        this.clientId = properties.getProperty("clientId");
-    }
-
     public String getClientSecret() {
         return clientSecret;
     }
 
-    public void setClientSecret() {
-        this.clientSecret = properties.getProperty("clientSecret");
-    }
 }
