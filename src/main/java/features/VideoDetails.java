@@ -16,7 +16,7 @@ public class VideoDetails {
         this.id = id;
     }
 
-    public Response<Video> getVideosServiceResponse() throws IOException {
+    public Response<Video> getVideoInfo() throws IOException {
         return Client.getService(VideosService.class)
                 .getVideoUsingId("id,contentDetails,snippet,statistics",
                         id)

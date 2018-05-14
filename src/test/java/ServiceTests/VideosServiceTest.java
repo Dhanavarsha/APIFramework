@@ -15,7 +15,7 @@ public class VideosServiceTest {
     public void testGetVideo() throws IOException {
         VideoDetails videoDetails = new VideoDetails("TMuno5RZNeE");
 
-        Response<Video> video = videoDetails.getVideosServiceResponse();
+        Response<Video> video = videoDetails.getVideoInfo();
 
         Assert.assertEquals(video.code(), 200);
         Assert.assertEquals(video.message(), "OK");
