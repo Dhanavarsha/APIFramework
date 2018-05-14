@@ -25,6 +25,11 @@ dependencies {
     // https://mvnrepository.com/artifact/com.relevantcodes/extentreports
     compile group: 'com.relevantcodes', name: 'extentreports', version: '2.41.2'
 
+    // https://mvnrepository.com/artifact/org.nanohttpd/nanohttpd
+    compile group: 'org.nanohttpd', name: 'nanohttpd', version: '2.3.0'
+
+    // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
+    compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.5'
 }
 
 task sample(type: Test) {

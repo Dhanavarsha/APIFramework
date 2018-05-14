@@ -8,6 +8,8 @@ public class PropertyFileReader {
     private Properties properties;
     private String apikey = "";
     private String accessToken = "";
+    private String clientId = "";
+    private String clientSecret = "";
 
     public PropertyFileReader() {
         this.properties = new Properties();
@@ -23,6 +25,8 @@ public class PropertyFileReader {
         }
         setApikey();
         setAccessToken();
+        setClientId();
+        setClientSecret();
     }
 
     public String getApikey() {
@@ -39,5 +43,21 @@ public class PropertyFileReader {
 
     private void setAccessToken() {
         this.accessToken = properties.getProperty("accessToken");
+    }
+
+    public String getClientId() {
+        return clientId;
+    }
+
+    public void setClientId() {
+        this.clientId = properties.getProperty("clientId");
+    }
+
+    public String getClientSecret() {
+        return clientSecret;
+    }
+
+    public void setClientSecret() {
+        this.clientSecret = properties.getProperty("clientSecret");
     }
 }
