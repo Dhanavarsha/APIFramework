@@ -3,10 +3,10 @@ package Client;
 import okhttp3.*;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import utils.PropertyFileReader;
+import utils.PropertyFile;
 
 public class Client {
-    private static PropertyFileReader propertyFileReader = new PropertyFileReader();
+    private static PropertyFile propertyFile = PropertyFile.getPropertyFile();
     private static final String BASE_URL = "https://www.googleapis.com/youtube/v3/";
 
     private static Retrofit getRetrofit() {
@@ -19,7 +19,7 @@ public class Client {
                         .url()
                         .newBuilder()
                         .addQueryParameter(
-                                "key", propertyFileReader.getApikey())
+                                "key", propertyFile.getApikey())
                         .build();
                 request = request
                         .newBuilder()
@@ -29,7 +29,7 @@ public class Client {
             } else if ("ACCESS_TOKEN".equals(request.header("Auth"))) {
                 Request newRequest = request
                         .newBuilder()
-                        .addHeader("Authorization", propertyFileReader.getAccessToken())
+                        .addHeader("Authorization", propertyFile.getAccessToken())
                         .build();
                 return chain.proceed(newRequest);
             }

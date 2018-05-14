@@ -5,18 +5,18 @@ import models.OAuthResponse.Token;
 import org.apache.http.client.utils.URIBuilder;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import utils.PropertyFileReader;
+import utils.PropertyFile;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
 
 public class AuthorizationServer extends NanoHTTPD {
-    private PropertyFileReader propertyFileReader;
+    private PropertyFile propertyFile;
 
     public AuthorizationServer(int port) throws IOException {
         super(port);
         start(NanoHTTPD.SOCKET_READ_TIMEOUT, false);
-        propertyFileReader = new PropertyFileReader();
+        propertyFile = PropertyFile.getPropertyFile();
         System.out.println("\n Authorization Server Running! Point your browsers to http://localhost:" + port + "/ \n");
     }
 
@@ -43,7 +43,7 @@ public class AuthorizationServer extends NanoHTTPD {
                     .addParameter("include_granted_scopes", "true")
                     .addParameter("redirect_uri", "http://localhost:8081/oauth2")
                     .addParameter("response_type", "code")
-                    .addParameter("client_id", propertyFileReader.getClientId())
+                    .addParameter("client_id", propertyFile.getClientId())
                     .build()
                     .toString();
         } catch (URISyntaxException e) {
@@ -62,8 +62,8 @@ public class AuthorizationServer extends NanoHTTPD {
             retrofit2.Response<Token> tokenResponse = retrofit.create(OAuth2AccessTokenService.class)
                     .requestToken(
                             code,
-                            propertyFileReader.getClientId(),
-                            propertyFileReader.getClientSecret(),
+                            propertyFile.getClientId(),
+                            propertyFile.getClientSecret(),
                             "http://localhost:8081/oauth2",
                             "authorization_code")
                     .execute();

@@ -4,16 +4,20 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.util.Properties;
 
-public class PropertyFileReader {
-    private Properties properties;
+public class PropertyFile {
+    private static PropertyFile propertyFile = new PropertyFile();
+    private Properties properties = new Properties();
     private String apikey = "";
     private String accessToken = "";
     private String clientId = "";
     private String clientSecret = "";
 
-    public PropertyFileReader() {
-        this.properties = new Properties();
+    private PropertyFile() {
         readPropertyFile();
+    }
+
+    public static PropertyFile getPropertyFile() {
+        return propertyFile;
     }
 
     private void readPropertyFile() {
