@@ -45,7 +45,6 @@ public class ExtentReporterNG implements IReporter {
                 test = extentReports.startTest(result.getMethod().getMethodName());
                 test.getTest().setStartedTime(getTime(result.getStartMillis()));
                 test.getTest().setEndedTime(getTime(result.getEndMillis()));
-                test.assignCategory("Functional");
                 for (String group : result.getMethod().getGroups())
                     test.assignCategory(group);
 
