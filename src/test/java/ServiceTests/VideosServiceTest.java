@@ -1,8 +1,8 @@
 package ServiceTests;
 
 import features.VideoDetails;
-import models.RatingResponse.Rating;
-import models.VideoResponse.Video;
+import models.ratingResponse.Rating;
+import models.videoResponse.Video;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import retrofit2.Response;

@@ -1,6 +1,6 @@
 package microservices;
 
-import models.SearchResponse.SearchResult;
+import models.searchResponse.SearchResult;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;

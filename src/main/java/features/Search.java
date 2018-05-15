@@ -1,8 +1,8 @@
 package features;
 
-import Client.Client;
+import client.Client;
 import microservices.SearchService;
-import models.SearchResponse.SearchResult;
+import models.searchResponse.SearchResult;
 import retrofit2.Response;
 
 import java.io.IOException;

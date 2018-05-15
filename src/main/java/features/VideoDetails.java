@@ -1,10 +1,10 @@
 package features;
 
 
-import Client.Client;
+import client.Client;
 import microservices.VideosService;
-import models.RatingResponse.Rating;
-import models.VideoResponse.Video;
+import models.ratingResponse.Rating;
+import models.videoResponse.Video;
 import retrofit2.Response;
 
 import java.io.IOException;

@@ -1,7 +1,7 @@
 package ServiceTests;
 
 import features.Search;
-import models.SearchResponse.SearchResult;
+import models.searchResponse.SearchResult;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import retrofit2.Response;

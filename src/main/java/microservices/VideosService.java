@@ -1,7 +1,7 @@
 package microservices;
 
-import models.RatingResponse.Rating;
-import models.VideoResponse.Video;
+import models.ratingResponse.Rating;
+import models.videoResponse.Video;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
