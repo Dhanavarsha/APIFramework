@@ -1,7 +1,6 @@
 .gradle/
 .idea/
 out/
-gradle/
 gradlew.bat
 build/
 src/test/resources/api.properties
