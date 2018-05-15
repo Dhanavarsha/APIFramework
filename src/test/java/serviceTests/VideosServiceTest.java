@@ -1,4 +1,4 @@
-package ServiceTests;
+package serviceTests;
 
 import features.VideoDetails;
 import models.ratingResponse.Rating;

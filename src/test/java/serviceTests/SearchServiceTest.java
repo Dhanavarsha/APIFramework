@@ -1,4 +1,4 @@
-package ServiceTests;
+package serviceTests;
 
 import features.Search;
 import models.searchResponse.SearchResult;
