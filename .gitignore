@@ -3,4 +3,4 @@
 out/
 gradlew.bat
 build/
-src/test/resources/api.properties
+api.properties
