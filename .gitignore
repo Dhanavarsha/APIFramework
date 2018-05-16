@@ -4,6 +4,6 @@ out/
 gradlew.bat
 build/
 # ignore api.properties in resources folder
-resources/*
+resources/api.properties
 # keep the folder
 !resources/.keep
