@@ -21,7 +21,7 @@ public class PropertyFile {
     }
 
     private void readPropertyFile() {
-        File file = new File("src/test/resources/api.properties");
+        File file = new File("src/test/java/resources/api.properties");
         try {
             properties.load(new FileInputStream(file));
         } catch (Exception e) {
