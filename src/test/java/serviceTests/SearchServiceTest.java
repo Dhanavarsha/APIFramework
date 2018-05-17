@@ -1,6 +1,7 @@
 package serviceTests;
 
 import assertions.ResponseStatus;
+import assertions.SearchAssertions;
 import features.Search;
 import models.searchResponse.SearchResult;
 import org.testng.Assert;
@@ -16,7 +17,9 @@ public class SearchServiceTest {
         Search search = new Search("uncle bob");
         Response<SearchResult> result = search.getSearchServiceResponse();
         ResponseStatus.OK.assertResponse(result);
-        Assert.assertEquals(result.body().getItems().get(0).getSnippet().getTitle().trim(),
-                "Bob Martin   SOLID Principles of Object Oriented and Agile Design");
+        SearchAssertions.assertVideoTitleAtIndex(
+                0,
+                "Bob Martin   SOLID Principles of Object Oriented and Agile Design",
+                result);
     }
 }

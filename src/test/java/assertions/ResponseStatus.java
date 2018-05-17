@@ -17,6 +17,6 @@ public enum ResponseStatus {
 
     public <T> void assertResponse(Response<T> response) {
         Assert.assertEquals(response.code(), this.code);
-        Assert.assertEquals(response.message(),this.message);
+        Assert.assertEquals(response.message(), this.message);
     }
 }

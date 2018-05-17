@@ -1,10 +1,10 @@
 package serviceTests;
 
 import assertions.ResponseStatus;
+import assertions.VideosAssertions;
 import features.VideoDetails;
 import models.ratingResponse.Rating;
 import models.videoResponse.Video;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import retrofit2.Response;
 
@@ -41,6 +41,6 @@ public class VideosServiceTest {
         videoDetails.removeRating();
         Response<Rating> rating = videoDetails.getVideoRating();
         ResponseStatus.OK.assertResponse(rating);
-        Assert.assertTrue(rating.body().getItems().get(0).getRating().toString().equals("none"));
+        VideosAssertions.assertRatingAsNone(rating);
     }
 }
